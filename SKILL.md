@@ -66,3 +66,16 @@ If `curl localhost:9000/api/stats` fails:
 1. Check service: `systemctl status ubuntu-monitor`
 2. Restart if needed: `sudo systemctl restart ubuntu-monitor`
 3. Check port: `ss -ltnp | grep 9000`
+
+## Deployment
+
+See `deploy/README.md` for full deployment guide.
+
+Quick:
+```bash
+sudo mkdir -p /opt/Ubuntu-Monitor
+sudo cp deploy/ubuntu-monitor /opt/Ubuntu-Monitor/myapp
+sudo cp deploy/ubuntu-monitor.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now ubuntu-monitor
+```
